@@ -3,7 +3,7 @@
 *.vhd~
 *.#
 
-Full_adde/*
+Full_adder/*
 !Full_adder/Full_adder.srcs
 
 Subtractor/*
