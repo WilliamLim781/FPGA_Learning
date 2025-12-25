@@ -3,13 +3,13 @@
 *.vhd~
 *.#
 
-Full_adder\*
-!Full_adder\Full_adder.srcs
+Full_adde/*
+!Full_adder/Full_adder.srcs
 
-Subtractor\*
-!Subtractor\Subtractor.srcs
+Subtractor/*
+!Subtractor/Subtractor.srcs
 
-multiplier\*
-!multiplier\multiplier.srcs
+multiplier/*
+!multiplier/multiplier.srcs
 
 
