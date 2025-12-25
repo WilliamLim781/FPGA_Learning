@@ -1,0 +1,15 @@
+*.v~
+*.sv~
+*.vhd~
+*.#
+
+Full_adder\*
+!Full_adder\Full_adder.srcs
+
+Subtractor\*
+!Subtractor\Subtractor.srcs
+
+multiplier\*
+!multiplier\multiplier.srcs
+
+
