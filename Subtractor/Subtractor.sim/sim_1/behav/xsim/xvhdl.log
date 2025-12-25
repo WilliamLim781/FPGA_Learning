@@ -1,5 +1,0 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/mexic/Subtractor/Subtractor.srcs/sources_1/new/Subtractor.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'One_Bit_Subtractor'
-INFO: [VRFC 10-3107] analyzing entity 'N_Bit_Subtractor'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/mexic/Subtractor/Subtractor.srcs/sim_1/new/Subtractor_TB.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Subtractor_TB'
