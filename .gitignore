@@ -12,4 +12,11 @@ Subtractor/*
 multiplier/*
 !multiplier/multiplier.srcs
 
+frequency_divider/*
+!frequency_divider/frequency_divider.srcs
+
+16x2 LCD_control/*
+!16x2 LCD_control/16x2 LCD_control.srcs
+
+
 
