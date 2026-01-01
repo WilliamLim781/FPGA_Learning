@@ -66,6 +66,8 @@ uut:entity work.LCD_Control
         r_rst <= '1';
         wait for 100 ns;
         r_rst <= '0';
-        wait; 
+        wait for 100 ns;
+        r_in1 <= "11100010";
+        wait;
     end process;
 end Behavioral;

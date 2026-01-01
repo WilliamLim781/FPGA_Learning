@@ -1,4 +1,4 @@
-----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
 -- Company: 
 -- Engineer: 
 -- 
@@ -52,6 +52,7 @@ architecture Behavioral of LCD_Control is
     signal slow_en    : std_logic;
     signal slow_en_d  : std_logic; -- edge detection
     signal slow_en_toggle: std_logic := '0';
+    signal Eight_bit_data    : std_logic_vector(message_size - 1 downto 0);
     
 begin
 
@@ -71,12 +72,13 @@ begin
     process(i_clk,i_rst)
     begin
         if rising_edge(i_clk) then
+            slow_en_d <= slow_en;   
             if(i_rst = '1') then
                 sel <= (others => '0'); -- reset sel counter
                 rst_active <= '1';
             end if;
-            if rst_active = '1' then
-                slow_en_d <= slow_en;
+            -- this section handles the reset operations
+            if rst_active = '1' then            
                 if slow_en_d = '0' AND slow_en = '1' then
                     slow_en_toggle <= not slow_en_toggle;
                 end if;
@@ -84,18 +86,29 @@ begin
                     sel <= sel + 1;
                     slow_en_toggle <= '0';
                 end if;
-            end if;
+             else
+                 if slow_en_d = '0' AND slow_en = '1' then
+                    slow_en_toggle <= not slow_en_toggle;
+                end if;
+                if slow_en_toggle = '1' then
+                    Eight_bit_data <= i_data;
+                    slow_en_toggle <= '0';
+                    sel <= "110";
+                end if;                             
+            end if;         
             if sel = "101" then
                 rst_active <= '0'; -- stop reset sequence
-            end if;
+            end if;         
         end if;
     end process Timing;
     
+    -- this section handles the multiplexor that will decide what messages will be send to the LCD
     with sel select
         o_data <= FUNCTION_SET when "001",
               CLEAR_DISPLAY when "010", 
               RETURN_HOME when "011" ,
               DISPLAY_ONOFF when "100",
               ENTRY_MODE_SET when "101",
+              Eight_bit_data when "110",
               x"00"          when others;  
 end Behavioral;
