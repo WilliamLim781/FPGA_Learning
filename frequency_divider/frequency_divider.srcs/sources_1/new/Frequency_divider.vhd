@@ -33,7 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity Frequency_divider is
     generic(
-        CONSTANT size : integer := 2
+        CONSTANT size : integer := 1
     );
     Port (
         clk   : in std_logic;

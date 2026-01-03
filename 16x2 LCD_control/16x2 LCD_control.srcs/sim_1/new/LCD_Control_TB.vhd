@@ -42,7 +42,9 @@ architecture Behavioral of LCD_Control_TB is
     signal r_rst : std_logic;
     signal w_data : std_logic_vector(MESSAGE_SIZE - 1 DOWNTO 0);
     signal r_en   : std_logic;
+    signal command: unsigned (MESSAGE_SIZE - 1 DOWNTO 0);
 begin
+
 
 uut:entity work.LCD_Control
     port map(
@@ -62,12 +64,20 @@ uut:entity work.LCD_Control
     process is 
         
     begin
-
+        command <= (others => '0'); -- setting command to zero 
         r_rst <= '1';
         wait for 100 ns;
         r_rst <= '0';
-        wait for 100 ns;
-        r_in1 <= "11100010";
-        wait;
+        wait for 348 ns;
+        for i in 0 to  255 loop
+            r_in1 <= std_logic_vector(command);
+            command <= command + 1;
+            wait for 64 ns;                           
+        end loop;
+        report "all test have passed"
+            severity note;
+        wait; 
     end process;
+
+     
 end Behavioral;
