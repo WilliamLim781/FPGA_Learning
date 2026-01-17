@@ -34,13 +34,13 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity LCD_Control is
     Port ( i_data: in STD_LOGIC_Vector(MESSAGE_SIZE - 1 downto 0);   -- read buttons to form data
-          -- i_RS  : in std_logic;                                  -- Register select to pick what type of operations are done (switch)
-           --i_RW  : in std_logic;                                -- Read/write select (switch) don't have enough inputs to give RW its own button
-           i_done  : in std_logic;                                -- for the enable pin when data is ready to transfer enable will be toggled
-           i_clk : in std_logic;                                  -- clock source for timing (internal component of FPGA dev board)
+          -- i_RS  : in std_logic;                                   -- Register select to pick what type of operations are done (switch)
+           --i_RW  : in std_logic;                                   -- Read/write select (switch) don't have enough inputs to give RW its own button
+           i_done  : in std_logic;                                   -- for the enable pin when data is ready to transfer enable will be toggled
+           i_clk : in std_logic;                                     -- clock source for timing (internal component of FPGA dev board)
            i_rst : in std_logic;
-           o_data: out STD_LOGIC_VECTOR (MESSAGE_SIZE - 1 DOWNTO 0);  -- data to be sent to LCD 
-           o_RS  : out std_logic; -- output still needs to be assigned
+           o_data: out STD_LOGIC_VECTOR (MESSAGE_SIZE - 1 DOWNTO 0); -- data to be sent to LCD 
+           o_RS  : out std_logic;                                    -- output still needs to be assigned
            o_en  : out std_logic;
            o_RW  : out std_logic
            );                                   
@@ -56,7 +56,7 @@ architecture Behavioral of LCD_Control is
     
 begin
 
-    o_RW <= '0';  -- right now there is only plans for writting so the pin is hardwired to '0' for write
+   -- o_RW <= '0';  -- right now there is only plans for writting so the pin is hardwired to '0' for write
     
     slow_clk_en: entity work.Frequency_divider
     port map(
