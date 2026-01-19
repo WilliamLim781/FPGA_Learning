@@ -19,5 +19,5 @@ frequency_divider/*
 !16x2 LCD_control/16x2 LCD_control.srcs
 
 Debounce/*
-!Debounce\Debounce.srcs
+!Debounce/Debounce.srcs
 
