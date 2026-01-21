@@ -21,3 +21,5 @@ frequency_divider/*
 Debounce/*
 !Debounce/Debounce.srcs
 
+LFSR/*
+!LFSR/LFSR.srcs
