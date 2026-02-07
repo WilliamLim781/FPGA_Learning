@@ -24,5 +24,5 @@ Debounce/*
 LFSR/*
 !LFSR/LFSR.srcs
 
-Carry Save Adder/*
-!Carry Save Adder/Carry Save Adder.srcs
+Carry_Save_Adder/*
+!Carry_Save_Adder/Carry_Save_Adder.srcs
