@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 12/23/2025 02:57:33 PM
+-- Create Date: 12/23/2025 12:52:30 PM
 -- Design Name: 
--- Module Name: 8bit_FA - Behavioral
+-- Module Name: Full_adder - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,17 +31,18 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity 8bit_FA is
+entity Full_adder is
     Port ( i_A : in STD_LOGIC;
            i_B : in STD_LOGIC;
-           i_CIn : in STD_LOGIC;
-           o_S : out STD_LOGIC;
-           o_Cout : out STD_LOGIC);
-end 8bit_FA;
+           i_Cin : in STD_LOGIC;
+           o_Cout : out STD_LOGIC;
+           o_S : out STD_LOGIC);
+end Full_adder;
 
-architecture Behavioral of 8bit_FA is
-
+architecture Behavioral of Full_adder is
 begin
 
+    o_S <= i_A xor i_B xor i_Cin;
+    o_Cout  <= (i_A AND i_B) OR (i_Cin AND(i_A XOR i_B));
 
 end Behavioral;
